@@ -140,6 +140,7 @@
 			</plugin>
 
 		</plugins>
+		<finalName>feedback-service</finalName>
 	</build>
 
 
