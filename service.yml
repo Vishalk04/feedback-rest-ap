@@ -1,9 +1,9 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: feedback-service
+  name: feedback_pipeline
 spec:
   selector:
-    app: feedback-service
+    app: feedback_pipeline
   ports:
-    - port: 8082 # Default port for image
+    - port: 8085 # Default port for image
