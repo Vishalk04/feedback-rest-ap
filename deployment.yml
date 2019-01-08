@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: feedback_pipeline
+  name: feedback-pipeline
   labels:
-    app: feedback_pipeline
+    app: feedback-pipeline
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: feedback_pipeline
+      app: feedback-pipeline
   template:
     metadata:
       labels:
-        app: feedback_pipeline
+        app: feedback-pipeline
     spec:
       containers:
-      - name: feedback_pipeline
+      - name: feedback-pipeline
         image: kartikjalgaonkar/feedback_pipeline
         ports:
         - containerPort: 8085
