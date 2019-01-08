@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: feedback_pipeline
+  name: feedback-pipeline
   annotations:
     ingress.kubernetes.io/rewrite-target: /
 spec:
@@ -10,5 +10,5 @@ spec:
       paths:
         - path: /feedback
           backend:
-            serviceName: feedback_pipeline
+            serviceName: feedback-pipeline
             servicePort: 8085
