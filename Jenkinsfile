@@ -1,6 +1,6 @@
 node {
     def app;
-    def namespace = 'test';
+    def namespace = 'feedback';
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
@@ -15,7 +15,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("kartikjalgaonkar/final-feedback-service")
+       app = docker.build("kartikjalgaonkar/feedback_pipeline")
     }
 
     stage('Push image') {
@@ -25,7 +25,7 @@ node {
          * Pushing multiple tags is cheap, as all the layers are reused. */
         docker.withRegistry('https://registry.hub.docker.com', 'docker_credentials') {
             app.push("${env.BUILD_NUMBER}")
-          app.push("latest")
+         app.push("latest")
         }
     }
     
@@ -33,7 +33,7 @@ node {
              
        
         switch (namespace) {
-            case "test":
+            case "demo":
                 sh("kubectl get ns ${namespace} --kubeconfig=/home/yash/.kube/config || kubectl create namespace ${namespace} --kubeconfig=/home/yash/.kube/config")
                 sh("kubectl --namespace=${namespace} apply -f deployment.yml --kubeconfig=/home/yash/.kube/config")
                 sh("kubectl --namespace=${namespace} apply -f service.yml --kubeconfig=/home/yash/.kube/config")
