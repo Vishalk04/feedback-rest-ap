@@ -22,7 +22,7 @@ public class FeedbackRepository {
 	public List<Feedback> findAllByOrderByIdDesc() {
 		// TODO Auto-generated method stub
 		
-		
+		System.out.println("updated");
 		List<Feedback> feedback = new ArrayList<>(feedbackData.values());
 		
 		return feedback;
