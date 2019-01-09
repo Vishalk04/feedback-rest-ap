@@ -17,5 +17,6 @@ spec:
       containers:
       - name: hc-feedback-pipeline
         image: kartikjalgaonkar/hc_feedback_pipeline
+        imagePullPolicy: "Always"
         ports:
         - containerPort: 8085
