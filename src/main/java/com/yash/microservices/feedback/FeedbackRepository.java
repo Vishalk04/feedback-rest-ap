@@ -30,7 +30,7 @@ public class FeedbackRepository {
 
 	public Feedback save(Feedback feedback) {
 		feedback.setId(id++);
-		
+		feedback.setRating(3);
 		feedbackData.put(feedback.getId(), feedback);
 		feedback.setId(id++);
 		return feedback;
