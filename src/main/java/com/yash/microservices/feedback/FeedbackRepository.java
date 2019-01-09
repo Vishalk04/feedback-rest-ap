@@ -1,5 +1,6 @@
 package com.yash.microservices.feedback;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,9 +19,13 @@ public class FeedbackRepository {
 		return Optional.of(feedbackData.get(id));
 	}
 
-	public List<Feedback>findAllByOrderByIdDesc() {
+	public List<Feedback> findAllByOrderByIdDesc() {
 		// TODO Auto-generated method stub
-		return (List<Feedback>) feedbackData.values();
+		
+		
+		List<Feedback> feedback = new ArrayList<>(feedbackData.values());
+		
+		return feedback;
 	}
 
 	public Feedback save(Feedback feedback) {
