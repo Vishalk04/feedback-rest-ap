@@ -10,5 +10,5 @@ spec:
       paths:
         - path: /feedback
           backend:
-            serviceName: feedback-pipeline
+            serviceName: hc-feedback-pipeline
             servicePort: 8085
