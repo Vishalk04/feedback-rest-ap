@@ -1,9 +1,9 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: feedback-pipeline
+  name: hc-feedback-pipeline
 spec:
   selector:
-    app: feedback-pipeline
+    app: hc-feedback-pipeline
   ports:
     - port: 8085 # Default port for image
