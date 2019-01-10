@@ -1,26 +1,22 @@
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: hc-feedback-hpa
-  namespace: hc-feedback
-  labels:
-    app: hc-feedback-pipeline
-    tier: frontend
+    name: hc-feedback-hpa
+    namespace: hc-feedback
+    labels:
+        app: hc-feedback-pipeline
+        tier: frontend
 spec:
-  scaleTargetRef:
-    apiVersion: apps/v1beta1
-    kind: Deployment
-    name: hc-feedback-pipeline
-  minReplicas: 2
-  maxReplicas: 5
-  #targetCPUUtilizationPercentage: 10
-  metrics:
-  - type: Resource
-    resource:
-        name: cpu
-        targetAverageUtilizarion: 10
-  - type: Resource
-    resource:
-        name: memory
-        targetAverageValue: 100Mi
-  
+    scaleTargetRef:
+        apiVersion: apps/v1beta1
+        kind: Deployment
+        name: hc-feedback-pipeline
+    minReplicas: 2
+    maxReplicas: 5
+    metrics:
+        -
+            type: Resource
+            resource: {name: cpu, targetAverageUtilizarion: 10}
+        -
+            type: Resource
+            resource: {name: memory, targetAverageValue: 100Mi}
