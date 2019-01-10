@@ -19,4 +19,5 @@ spec:
         image: kartikjalgaonkar/hc_feedback_pipeline:latest
         imagePullPolicy: "Always"
         ports:
-        - containerPort: 8085
+        - name: https
+          containerPort: 8085
