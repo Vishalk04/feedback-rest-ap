@@ -25,7 +25,7 @@ node {
          * Pushing multiple tags is cheap, as all the layers are reused. */
         docker.withRegistry('https://registry.hub.docker.com', 'docker_credentials') {
         app.push("${env.BUILD_NUMBER}")
-        app.push("latest")
+        //app.push("latest")
         }
     }
     
@@ -38,6 +38,7 @@ node {
                 sh("kubectl --namespace=${namespace} apply -f deployment.yml --kubeconfig=/home/yash/.kube/config")
                 sh("kubectl --namespace=${namespace} apply -f service.yml --kubeconfig=/home/yash/.kube/config")
                 sh ("kubectl --namespace=${namespace} apply -f ingress.yml --kubeconfig=/home/yash/.kube/config")
+                sh ("kubectl  apply --record -f hc-feedback-hpa.yaml --kubeconfig=/home/yash/.kube/config")
              //   sh("echo http://`kubectl --namespace=${namespace} get service/${feSvcName} --output=json --kubeconfig=/home/yash/.kube/config | jq -r '.status.loadBalancer.ingress[0].ip'` > ${feSvcName} ")
             
                 break
