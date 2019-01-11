@@ -2,7 +2,7 @@ apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
     name: hc-feedback-hpa
-    namespace: hc-feedback
+    namespace: feedback
     labels:
         app: hc-feedback-pipeline
         tier: frontend
