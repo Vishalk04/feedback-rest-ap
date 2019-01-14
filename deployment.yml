@@ -21,7 +21,7 @@ spec:
         ports:
         - name: https
           containerPort: 8085
-#        resources:
-#          requests:
-#            cpu: 10m
-#status: {}
+        resources:
+          requests:
+            cpu: 100m
+status: {}
