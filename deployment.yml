@@ -23,5 +23,5 @@ spec:
           containerPort: 8085
         resources:
           requests:
-            cpu: 100m
+            cpu: 10m
 status: {}
